@@ -1,0 +1,24 @@
+{
+    "mongoose": {
+        "uri": "mongodb://mongodb/storage",
+        "options": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": "1"
+                }
+            },
+            "useMongoClient": "true"
+        }
+    },
+    "defaultValues":{
+        "userName": "Admin",
+        "userEmail": "admin@def.com",
+        "userPassword": "123456"
+    },
+    "crypto": {
+      "hash": {
+        "length":     "128",
+        "iterations": "1200"
+      }
+  }
+}

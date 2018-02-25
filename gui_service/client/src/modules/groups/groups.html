@@ -1,0 +1,31 @@
+<!--<div class="container">
+    <h3>Groups List</h3>
+    <div uib-pagination ng-change="$ctrl.pageChanged()" items-per-page="$ctrl.items_per_page" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage" max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Details</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="group in $ctrl.pageData | filter:criteria">
+                <td>{{group.name}}</td>
+                <td>{{group.description}}</td>
+                <td><a href="" ng-click="$ctrl.openDetailsDialog(group._id)"><span class="fa fa-bars" aria-hidden="true"></span></a></td>
+                <td><a href="" ng-click="$ctrl.openEditDialog(group._id)"><span class="fa fa-pencil" aria-hidden="true"></span></a></td>
+                <td><a href="" ng-click="$ctrl.removeGroup(group._id)"><span class="fa fa-trash" aria-hidden="true"></span></a></td>
+            </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-default" ng-click="$ctrl.openGroupAddDialog()">Add Group</button>
+</div>-->
+
+
+<group-manager actions="true"></group-manager>
+
+<!--<tree on-open="$ctrl.onOpen(item, path)"></tree>-->

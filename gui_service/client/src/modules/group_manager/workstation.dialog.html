@@ -1,0 +1,10 @@
+<form class="form-horizontal">
+   <div ng-show="$ctrl.result.groups.length>1" class="form-group">
+       <label for="name" class="col-sm-3 col-form-label">Group:</label>
+       <div class="col-sm-9">
+           <select class="form-control" id="parentgroup"
+               ng-model="$ctrl.result.parent_id"
+               ng-options="group._id as group.name for group in $ctrl.result.groups"></select>
+       </div>
+   </div>
+</form>

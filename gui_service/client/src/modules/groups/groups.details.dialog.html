@@ -1,0 +1,25 @@
+<div class="container col-sm-12">
+  <table class="table table-striped">
+    <thead>
+      <!--<tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+    </tr>-->
+    </thead>
+    <tbody>
+      <tr>
+        <td>Parent group:</td>
+        <td>{{$ctrl.result.parent_id.name}}</td>
+      </tr>
+      <tr>
+        <td>Synchronization Login:</td>
+        <td>{{$ctrl.result.parent_id.sync_login}}</td>
+      </tr>
+      <tr>
+        <td>Synchronization Password:</td>
+        <td>{{$ctrl.result.parent_id.sync_password}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

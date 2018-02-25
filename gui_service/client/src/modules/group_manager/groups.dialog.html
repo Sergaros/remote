@@ -1,0 +1,41 @@
+<form class="form-horizontal">
+    <div class="form-group">
+      <label for="name" class="col-sm-3 col-form-label">Name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="name" placeholder="Enter group name" ng-model="$ctrl.result.name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-3 col-form-label">Description</label>
+      <div class="col-sm-9">
+        <textarea class="form-control" rows="5" id="comment" placeholder="Eneter description" ng-model="$ctrl.result.description"></textarea>
+      </div>
+    </div>
+    <fieldset class="form-group">
+     <label class="col-form-label col-sm-12">Synchronization:</label>
+     <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+             <label for="synchlogin" class="col-sm-2 col-form-label">Login:</label>
+             <div class="col-sm-10">
+                 <input type="text" class="form-control" id="synchlogin" placeholder="Enter login"  ng-model="$ctrl.result.sync_login">
+             </div>
+        </div>
+    </div>
+     <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+             <label for="synchpass" class="col-sm-2 col-form-label">Password:</label>
+             <div class="col-sm-10">
+                 <input type="password" class="form-control" id="synchpass" placeholder="Enter password"  ng-model="$ctrl.result.sync_password">
+             </div>
+        </div>
+    </div>
+   </fieldset>
+   <div ng-show="$ctrl.result.groups.length>1" class="form-group">
+       <label for="name" class="col-sm-3 col-form-label">Parent Group:</label>
+       <div class="col-sm-9">
+           <select class="form-control" id="parentgroup"
+               ng-model="$ctrl.result.parent_id"
+               ng-options="group._id as group.name for group in $ctrl.result.groups"></select>
+       </div>
+   </div>
+</form>

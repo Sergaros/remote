@@ -1,0 +1,28 @@
+{
+    "port": "5501",
+    "pfx": "qubyx_certificate.pfx",
+    "passphrase": "qubyxgo77",
+    "secret": ["gui_service_secret_word"],
+    "mongoose": {
+        "uri": "mongodb://mongodb/storage",
+        "options": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": "1"
+                }
+            }
+        }
+    },
+    "defaultValues":{
+        "userName": "Admin",
+        "userEmail": "admin@def.com",
+        "userPassword": "123456"
+    },
+    "secret":   "mysecret",
+    "crypto": {
+      "hash": {
+        "length":     "128",
+        "iterations": "1200"
+      }
+    }
+}

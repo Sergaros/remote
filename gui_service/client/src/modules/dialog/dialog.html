@@ -1,0 +1,29 @@
+<!--
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">{{$ctrl.options.title}}</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <div ng-show="$ctrl.options.contentUrl" ng-include="$ctrl.options.contentUrl"></div>
+            <div ng-show="$ctrl.options.info">{{$ctrl.options.info}}</div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+            <button ng-show="$ctrl.options.cancel" class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{$ctrl.options.title}}</h3>
+</div>
+<div class="modal-body" name="modalData">
+    <div ng-show="$ctrl.options.contentUrl" ng-include="$ctrl.options.contentUrl"></div>
+    <div ng-show="$ctrl.options.info">{{$ctrl.options.info}}</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+    <button ng-show="$ctrl.options.cancel" class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+</div>

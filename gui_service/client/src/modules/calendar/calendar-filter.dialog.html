@@ -1,0 +1,58 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="type" class="col-sm-3 col-form-label">Type:</label>
+        <div class="col-sm-9">
+            <select class="form-control"
+                ng-model="$ctrl.result.type">
+                <option >all</option>
+                <option>qa</option>
+                <option>user</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="type" class="col-sm-3 col-form-label">Frequency:</label>
+        <div class="col-sm-9">
+            <!--<select class="form-control"
+                ng-model="$ctrl.result.frequencies" multiple>
+                <option>daily</option>
+                <option>weekly</option>
+                <option>monthly</option>
+                <option>quaoterly</option>
+                <option>semiannually</option>
+                <option>annually</option>
+            </select>-->
+
+            <ui-select ng-model="$ctrl.result.frequencies" multiple>
+                <ui-select-match>
+                    {{$item}}
+                </ui-select-match>
+                <ui-select-choices repeat="freq in (['daily', 'weekly', 'monthly', 'quaoterly', 'semiannually', 'annually'] | filter: $select.search)">
+                    {{freq}}
+                </ui-select-choices>
+            </ui-select>
+
+        </div>
+    </div>
+    <div ng-show="$ctrl.result.groups.length>1" class="form-group">
+        <label for="name" class="col-sm-3 col-form-label">Groups:</label>
+        <div class="col-sm-9">
+            <!--<select class="form-control" id="parentgroup" multiple
+                ng-model="$ctrl.result.groups_ids"
+                ng-options="group.id as group.name for group in $ctrl.result.groups"></select>-->
+
+
+                <ui-select ng-model="$ctrl.result.groups_ids" multiple>
+                    <ui-select-match>
+                        {{$item.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="group in ($ctrl.result.groups | filter: $select.search) track by group.id">
+                        <span ng-bind="group.name"></span>
+                    </ui-select-choices>
+                </ui-select>
+
+
+        </div>
+    </div>
+
+</form>

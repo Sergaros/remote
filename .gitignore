@@ -1,0 +1,14 @@
+/db
+/node_modules
+/logs
+
+synchronize_service/db
+synchronize_service/node_modules
+
+gui_service/db
+gui_service/node_modules
+gui_service/client/node_modules
+
+calendar_service/node_modules
+
+mail_service/node_modules

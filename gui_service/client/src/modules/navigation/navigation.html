@@ -1,0 +1,59 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+
+                <div class="profile-element" uib-dropdown>
+                    <a href="/"><img src="src/images/logoQubyx.png" width="100" alt="Qubyx Remote"></a>
+                </div>
+                <div class="logo-element">
+                    QBX
+                </div>
+
+            </li>
+
+            <!--<li ui-sref-active="active">-->
+            <!--<a ui-sref="index.main"><i class="fa fa-laptop"></i> <span class="nav-label">Main page</span> </a>-->
+            <!--</li>-->
+            <!--<li ui-sref-active="active">-->
+            <!--<a ui-sref="index.minor"><i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span></a>-->
+            <!--</li>-->
+            <!--<li ng-class="{active: $state.includes('mailbox')}">-->
+            <!--<a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">MAILBOX</span><span class="label label-warning pull-right">16/24</span></a>-->
+            <!--<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('mailbox')}">-->
+            <!--<li ui-sref-active="active"><a ui-sref="mailbox.inbox">Inbox</a></li>-->
+            <!--<li ui-sref-active="active"><a ui-sref="mailbox.email_view">Email view</a></li>-->
+            <!--<li ui-sref-active="active"><a ui-sref="mailbox.email_compose">Compose email</a></li>-->
+            <!--<li ui-sref-active="active"><a ui-sref="mailbox.email_template">Email template</a></li>-->
+            <!--</ul>-->
+            <!--</li>-->
+
+            <li ui-sref-active="active"><a ui-sref="calendar"><i class="fa fa-calendar"></i> <span class="nav-label">Calendar</span></a></li>
+            <li ng-class="{active: $ctrl.$state.includes('manage')}">
+                <a href="#" class="has-arrow"><i class="fa fa-pencil"></i> <span class="nav-label">Manage</span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $ctrl.$state.includes('manage')}" aria-expanded="true">
+                    <li ui-sref-active="active"><a ui-sref="manage.calibration"><i class="fa fa-desktop"></i> <span class="nav-label">Display Calibration</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="manage.qa"><i class="fa fa-question"></i> <span class="nav-label">Quality Assurance</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="manage.scheduler"><i class="fa fa-calendar"></i> <span class="nav-label">Scheduler</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="manage.history"><i class="fa fa-table"></i> <span class="nav-label">History</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="manage.appsettings"><i class="fa fa-gear"></i> <span class="nav-label">Application Settings</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="manage.dispsettings"><i class="fa fa-desktop"></i> <span class="nav-label">Displays Settings</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="manage.licenses"><i class="fa fa-key"></i> <span class="nav-label">Licenses</span></a></li>
+                </ul>
+            </li>
+
+            <li ng-class="{active: $ctrl.$state.includes('admin')}">
+                <a href="#" class="has-arrow"><i class="fa fa-cogs"></i> <span class="nav-label">Administration</span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $ctrl.$state.includes('admin')}">
+                    <li ui-sref-active="active"><a ui-sref="admin.groups"><i class="fa fa-user-circle"></i> <span class="nav-label">Groups</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="admin.workstations"><i class="fa fa-desktop"></i> <span class="nav-label">Workstations</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="admin.users"><i class="fa fa-users"></i> <span class="nav-label">Users</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="admin.notifications"><i class="fa fa-bell"></i> <span class="nav-label">Notifications</span></a></li>
+                    <li ng-if="$ctrl.checkPermission('admin')" ui-sref-active="active"><a ui-sref="admin.outmail"><i class="fa fa-envelope"></i> <span class="nav-label">Outgoing mail</span></a></li>
+                    <li ui-sref-active="active"><a ui-sref="admin.logs"><i class="fa fa-list"></i> <span class="nav-label">Log</span></a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</nav>

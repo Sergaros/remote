@@ -1,0 +1,10 @@
+<div class="column">
+    <ul class = "list-group">
+        <li ng-repeat="item in $ctrl.content.items"
+            ng-class="$ctrl.getClass(item)"
+            ng-click="$ctrl.onOpen({item: item, number: $ctrl.content.number})"
+            aria-hidden="true">
+            {{item.name}}
+        </li>
+    </ul>
+</div>

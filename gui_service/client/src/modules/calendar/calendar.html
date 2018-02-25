@@ -1,0 +1,75 @@
+<page-header data-title="Calendar" path=""></page-header>
+</br>
+</br>
+<page-content data-title="Calendar">
+    <h2 class="text-center">{{ $ctrl.calendarTitle }}</h2>
+    <!--<h3>View Date {{$ctrl.viewDate}}</h3>
+    <h3>Calendar View {{$ctrl.calendarView}}</h3>-->
+    <div class="row">
+
+        <div class="col-md-6 text-center">
+            <div class="btn-group">
+                <button class="btn btn-primary" mwl-date-modifier date="$ctrl.viewDate" decrement="$ctrl.calendarView" ng-click="$ctrl.refreshTasks()">
+              Previous
+            </button>
+                <button class="btn btn-default" mwl-date-modifier date="$ctrl.viewDate" set-to-today ng-click="$ctrl.refreshTasks()">
+              Today
+            </button>
+                <button class="btn btn-primary" mwl-date-modifier date="$ctrl.viewDate" increment="$ctrl.calendarView" ng-click="$ctrl.refreshTasks()">
+              Next
+            </button>
+            </div>
+        </div>
+
+        <br class="visible-xs visible-sm">
+
+        <!--<div class="col-md-6 text-center">
+          <div class="btn-group">
+            <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'year'" ng-click="$ctrl.refreshTasks()">Year</label>
+            <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'month'" ng-click="$ctrl.refreshTasks()">Month</label>
+            <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'week'" ng-click="$ctrl.refreshTasks()">Week</label>
+            <label class="btn btn-primary" ng-model="$ctrl.calendarView" uib-btn-radio="'day'" ng-click="$ctrl.refreshTasks()">Day</label>
+          </div>
+      </div>-->
+
+    <div class="col-md-6 text-center">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Filters</button>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+            <ul class="dropdown-menu" role="menu">
+                <li ng-if="!$ctrl.filterExist"><a ng-click="$ctrl.addFilter()">Add</a></li>
+                <li ng-if="$ctrl.filterExist"><a ng-click="$ctrl.addFilter()">Change</a></li>
+                <li ng-if="$ctrl.filterExist"><a ng-click="$ctrl.removeFilter()">Remove all</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div>
+    <mwl-calendar events="$ctrl.events"
+                    view="$ctrl.calendarView"
+                    view-title="$ctrl.calendarTitle"
+                    view-date="$ctrl.viewDate"
+                    on-event-click="$ctrl.eventClicked(calendarEvent)"
+                    on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd; $ctrl.eventTimesChanged(calendarEvent);"
+                    cell-is-open="$ctrl.cellIsOpen"
+                    day-view-start="06:00"
+                    day-view-end="22:59"
+                    day-view-split="30"
+                    cell-modifier="$ctrl.modifyCell(calendarCell)"
+                    template-scope="$ctrl.cellScope"
+                    cell-auto-open-disabled="true"
+                    on-timespan-click="$ctrl.timespanClicked(calendarDate, calendarCell)"
+                    custom-template-urls="{calendarSlideBox: '/src/modules/calendar/slideBox.html',
+                                    calendarMonthCell: '/src/modules/calendar/monthCell.html',
+                                    calendarMonthCellEvents: '/src/modules/calendar/eventView.html'}"
+                    >
+    </mwl-calendar>
+</page-content>
+
+<!--
+
+
+
+-->

@@ -1,0 +1,81 @@
+<page-header data-title="Outgoing Mail" path=""></page-header>
+</br>
+</br>
+<page-content data-title="Mail Box Configuration">
+    <form class="form-horizontal" name="$ctrl.mform" novalidate>
+
+        <div class="form-group" ng-class="$ctrl.getClass($ctrl.mform.host)">
+            <label for="host" class="col-sm-2 col-form-label">Host:</label>
+
+            <div class="col-sm-8">
+                <input name="host" class="form-control" type="text" ng-model="$ctrl.config.host" required>
+                <p class="red" ng-if="$ctrl.hasError($ctrl.mform.host, 'required')">Host is required</p>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="$ctrl.getClass($ctrl.mform.port)">
+            <label for="port" class="col-sm-2 col-form-label">Port:</label>
+            <div class="col-sm-8">
+                <input name="port" class="form-control" type="number" ng-model="$ctrl.config.port" required>
+                <p class="red" ng-if="$ctrl.hasError($ctrl.mform.port, 'required')">Port is required</p>
+                <p class="red" ng-if="$ctrl.hasError($ctrl.mform.port, 'number')">Port must be a number</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="perset" class="col-sm-2 col-form-label">Secure connection:</label>
+            <div class="col-sm-8">
+                <label><input type="checkbox" ng-model="$ctrl.config.secure"></label>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="$ctrl.getClass($ctrl.mform.email)">
+            <label for="email" class="col-sm-2 col-form-label">Email:</label>
+            <div class="col-sm-8">
+                <input name="email" class="form-control" type="email" ng-model="$ctrl.config.email" required>
+                <p class="red" ng-if="$ctrl.hasError($ctrl.mform.email, 'required')">Email is required</p>
+                <p class="red" ng-if="$ctrl.hasError($ctrl.mform.email, 'email')">Email is not valid</p>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="$ctrl.getClass($ctrl.mform.user)">
+            <label for="user" class="col-sm-2 col-form-label">User:</label>
+            <div class="col-sm-8">
+                <input name="user" class="form-control" type="text" ng-model="$ctrl.config.user" required>
+                <p class="red" ng-if="$ctrl.hasError($ctrl.mform.user, 'required')">User is required</p>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="$ctrl.getClass($ctrl.mform.pass)">
+            <label for="pass" class="col-sm-2 col-form-label">Password:</label>
+            <div class="col-sm-8">
+                <input name="pass" class="form-control" type="password" ng-model="$ctrl.config.pass" required>
+                <p class="red" ng-if="$ctrl.hasError($ctrl.mform.pass, 'required')">Password is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button ng-disabled="$ctrl.mform.$invalid" type="button" class="btn btn-success" ng-click="$ctrl.submit()">Save</button>
+            </div>
+        </div>
+    </form>
+</page-content>
+
+<page-content data-title="Email test" ng-if="$ctrl.isConfigured">
+    <form class="form-horizontal" name="$ctrl.mTestform" novalidate>
+
+        <div class="form-group">
+            <label for="pass" class="col-sm-2 col-form-label">Sent to:</label>
+            <div class="col-sm-8">
+                <input name="testemail" class="form-control" type="email" ng-model="$ctrl.testemail" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button ng-disabled="$ctrl.mTestform.$invalid" type="button" class="btn btn-success" ng-click="$ctrl.sendTestEmail()">Sent</button>
+            </div>
+        </div>
+    </form>
+</page-content>

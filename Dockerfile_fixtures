@@ -1,0 +1,24 @@
+FROM node:slim
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+#RUN npm i -g gulp 
+
+# Bundle app source
+COPY ./libs /usr/src/app/libs
+COPY ./config /usr/src/app/config
+COPY package.json /usr/src/app
+COPY index.js /usr/src/app
+
+# Install app dependencies
+RUN npm install
+
+EXPOSE 5509
+
+RUN useradd -s /bin/bash -d /usr fixturesuser
+USER fixturesuser
+
+CMD ["npm", "start"]
+#CMD ["gulp"]

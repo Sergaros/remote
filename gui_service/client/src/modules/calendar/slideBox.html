@@ -1,0 +1,22 @@
+<div class="cal-slide-box" uib-collapse="vm.isCollapsed" mwl-collapse-fallback="vm.isCollapsed">
+    <div class="cal-slide-content cal-event-list">
+        <ul class="unstyled list-unstyled">
+            <li ng-repeat="event in vm.events | orderBy:'startsAt' track by event.calendarEventId"
+                    ng-mousedown="$event.stopPropagation()"
+                    mwl-draggable="event.draggable === true"
+                    drop-data="{event: event}"
+                    auto-scroll="vm.draggableAutoScroll">
+
+                <i ng-repeat="task in event.data" class="pull-left fa fa-circle" aria-hidden="true"
+                   ng-style="{color: event.color.primary}">
+                   <span style="color: white">{{task.name}}
+                       <a ng-repeat="action in event.actions" ng-class="action.class" ng-click="action.onClick(task)" aria-hidden="true"></a>
+                   </span> &nbsp;
+               </i><br>
+
+
+            </li>
+
+        </ul>
+    </div>
+</div>

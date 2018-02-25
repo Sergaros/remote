@@ -1,0 +1,19 @@
+FROM node:slim
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# Bundle app source
+COPY ./mail_service /usr/src/app/
+COPY ./libs /usr/src/app/libs
+
+# Install app dependencies
+RUN npm install
+
+EXPOSE 5503
+
+RUN useradd -s /bin/bash -d /usr mailuser
+USER mailuser
+
+CMD ["npm", "start"]

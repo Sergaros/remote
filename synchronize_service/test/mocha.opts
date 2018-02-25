@@ -1,0 +1,5 @@
+-u bdd
+-R spec
+-t 500
+--recursive
+--harmony

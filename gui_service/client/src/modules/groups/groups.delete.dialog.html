@@ -1,0 +1,18 @@
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="name" class="col-sm-12 col-form-label">
+            Do you want to set new parent group for depend users and childs groups?
+            If you don't set new parent group all depend users and groups would be deleted.
+        </label>
+    </div>
+</br>
+
+        <div class="form-group">
+            <label for="name" class="col-sm-4 col-form-label">Set Parent Group:</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="parentgroup"
+                        ng-model="$ctrl.result.parent_id"
+                        ng-options="group._id as group.name for group in $ctrl.result.groups"></select>
+                </div>
+        </div>
+<div>

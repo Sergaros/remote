@@ -1,0 +1,10 @@
+<label for="perset" class="col-sm-3 col-form-label">{{$ctrl.title}}</label>
+<div class="col-sm-9">
+    <select class="form-control"
+        ng-model="$ctrl.item.value"
+        ng-change="$ctrl.change()"
+        ng-options="option.key as option.value for option in $ctrl.item.options"></select>
+</div>
+<!--<div class="col-sm-1" ng-show="$ctrl.locked != 'false'">
+    <label><input type="checkbox" icheck ng-change="$ctrl.changel()" ng-model="$ctrl.item.isLocked">is locked</label>
+</div>-->

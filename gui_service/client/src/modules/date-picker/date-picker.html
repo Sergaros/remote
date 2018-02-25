@@ -1,0 +1,15 @@
+<p class="input-group">
+    <input type="text" class="form-control"
+        uib-datepicker-popup ng-change="$ctrl.displayDateChanged()"
+        ng-model="$ctrl.date"
+        is-open="$ctrl.popup.opened"
+        datepicker-options="$ctrl.dateOptions"
+        ng-required="true"
+        close-text="Close"
+        min-date="$ctrl.minDate"
+        max-date="$ctrl.maxDate"/>
+
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="$ctrl.dateOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+</p>

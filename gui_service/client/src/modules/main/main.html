@@ -1,0 +1,22 @@
+<div id="wrapper">
+
+  <!-- Navigation -->
+  <navigation ng-show="$ctrl.isLogged()"></navigation>
+
+  <!-- Page wraper -->
+  <!-- ng-class with current state name give you the ability to extended customization your view -->
+  <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+    <!--<div ng-include="'views/common/topnavbar.html'"></div>-->
+    <topnavbar ng-show="$ctrl.isLogged()"></topnavbar>
+
+    <!-- Main view  -->
+    <ui-view></ui-view>
+
+    <!-- Footer -->
+    <footer></footer>
+
+  </div>
+  <!-- End page wrapper-->
+
+</div>

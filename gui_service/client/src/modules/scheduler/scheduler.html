@@ -1,0 +1,66 @@
+<div class="wrapper wrapper-content animated fadeIn" ng-if="$ctrl.isActive">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Scheduler</h5>
+                </div>
+                <div class="ibox-content">
+
+            <h4>Constancy Tests</h4>
+            <task-table ng-show="$ctrl.qaData.length" table-data="$ctrl.qaData" on-edit="$ctrl.qaTaskEdit(id)" config="{edit: true}"></task-table>
+            <h4>Calibration Tasks</h4>
+            <!--ng-show="$ctrl.calData.length"-->
+            <task-table  table-data="$ctrl.calTableData"
+                         on-delete="$ctrl.calTaskDelete(id)"
+                         on-edit="$ctrl.calTaskEdit(id)"
+                         on-add="$ctrl.calTaskAdd()" config="{edit: true, add: true, delete: true}"></task-table>
+
+             <!-- <h4>Calibration and Verification Tasks</h4>
+              <form class="form-inline">
+                  <div class="form-group">
+                      <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search" ng-model="$ctrl.calTasksFilter">
+                          <div class="input-group-btn">
+                              <button class="btn btn-default" type="submit">
+                                  <i class="glyphicon glyphicon-search"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-primary">Add</button>
+                          <button type="button" class="btn btn-primary">Edit</button>
+                          <button type="button" class="btn btn-primary">Delete</button>
+                      </div>
+                  </div>
+              </form>
+              <div uib-pagination ng-change="$ctrl.pageChangedCal()" items-per-page="$ctrl.items_per_page" total-items="$ctrl.totalItemsCal" ng-model="$ctrl.currentPageCal" max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></div>
+              <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Task Type</th>
+                      <th>Device</th>
+                      <th>Scheduled(Date/Time)</th>
+                      <th>Frequency</th>
+                      <th>Last Success</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr ng-repeat="item in $ctrl.pageDataCal | filter:$ctrl.calTasksFilter">
+                          <td>{{item.task.name.value}}</td>
+                          <td>{{$ctrl.getDisplayNameById(item.displayId)}}</td>
+                          <td>{{$ctrl.getDate(item.task.nextdate.value)}}</td>
+                          <td>{{item.task.freq.value}}</td>
+                          <td>{{$ctrl.getDate(item.task.lastrundate.value)}}</td>
+                      </tr>
+                  </tbody>
+                </table>
+
+        </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{
+    "port": "5502",
+    "pfx": "qubyx_certificate.pfx",
+    "passphrase": "qubyxgo77",
+    "mongoose": {
+        "uri": "mongodb://mongodb/storage",
+        "options": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": "1"
+                }
+            }
+        }
+    }
+}

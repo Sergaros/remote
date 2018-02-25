@@ -1,0 +1,21 @@
+<page-header data-title="Group Manager" path="$ctrl.path"></page-header>
+</br>
+</br>
+<page-content data-title="Group Manager">
+    <div ng-if="$ctrl.actions">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary"
+                ng-click="$ctrl.addGroupDialog()">Add</button>
+            <button type="button" class="btn btn-primary"
+                ng-click="$ctrl.editGroupDialog()"
+                ng-disabled="!$ctrl.currentItem">Edit</button>
+            <button type="button" class="btn btn-primary"
+                ng-click="$ctrl.deleteGroupDialog()"
+                ng-disabled="!$ctrl.currentItem">Delete</button>
+        </div>
+        </br>
+        </br>
+    </div>
+
+    <tree on-open="$ctrl.onOpen(item, path, content, groups)"></tree>
+</page-content>

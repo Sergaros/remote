@@ -1,0 +1,30 @@
+{
+  "name": "mail_service",
+  "version": "1.0.0",
+  "description": "Service for sending emails.",
+  "main": "server.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV='test' NODE_PATH='.;libs/.' mocha --harmony -u bdd -R spec -t 500 --recursive --watch",
+    "watch": "cross-env NODE_PATH='.;libs/.' mocha -u bdd -R spec -t 500 --recursive --watch",
+    "start": "NODE_ENV='production' NODE_PATH='.:libs/.' node --harmony server.js"
+  },
+  "keywords": [
+    "email",
+    "service"
+  ],
+  "author": "QUBYX",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "config": "^1.26.2",
+    "nodemailer": "^4.1.2",
+    "nodemailer-html-to-text": "^2.1.0",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "nodemailer-stub-transport": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.0",
+    "supertest": "^3.0.0"
+  }
+}

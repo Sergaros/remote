@@ -1,0 +1,180 @@
+<form class="form-horizontal">
+
+    <div ng-show="true" class="form-group">
+        <m-select title="Task:" item="$ctrl.result.type" locked="false"></m-select>
+    </div>
+
+    <div ng-show="true" class="form-group">
+        <m-select title="Display:" item="$ctrl.result.displayId" locked="false"></m-select>
+    </div>
+
+    <div ng-show="true" class="form-group">
+        <m-select title="Schedule type:" item="$ctrl.result.schtype" locked="false" change="$ctrl.result.taskTypeChanged()"></m-select>
+    </div>
+
+    <div ng-show="$ctrl.result.schtype.value !== '0'" class="form-group">
+        <div class="col-sm-offset-1 col-sm-11">
+            <label>Specify the time and date to launch the task.</label>
+        </div>
+    </div>
+
+    <!--Once/Quoterly/Annualy/Binnualy-->
+    <div ng-show="$ctrl.result.schtype.value === '1'|| $ctrl.result.schtype.value > 4">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+                <label>Start time:</label>
+            </div>
+            <div class="col-sm-5">
+                <div uib-timepicker ng-model="$ctrl.result.starttime" hour-step="1" minute-step="1" show-meridian="false"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+                <label>Start date:</label>
+            </div>
+            <div class="col-sm-5">
+                <date-picker date="$ctrl.result.startdate"></date-picker>
+            </div>
+        </div>
+    </div>
+    <!--Daily-->
+    <div ng-show="$ctrl.result.schtype.value === '2'">
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+                <label>Start time:</label>
+            </div>
+            <div class="col-sm-5">
+                <div uib-timepicker ng-model="$ctrl.result.starttime" hour-step="1" minute-step="1" show-meridian="false"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label>Perform this task:</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label><input type="radio" name="dailyRadio" ng-model="$ctrl.result.nthflag" value="1" >every day</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label><input type="radio" name="dailyRadio" ng-model="$ctrl.result.nthflag" value="2" >on working days only</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <label><input type="radio" name="dailyRadio" ng-model="$ctrl.result.nthflag" value="3" form="">every</label>
+            </div>
+            <div class="col-sm-2" >
+                <input class="form-control" type="number" step="1" min=2 max=30
+                        ng-disabled="$ctrl.result.nthflag !== '3'"
+                        ng-model="$ctrl.result.everynday">
+            </div>
+            <div class="col-sm-3">
+                <p>-th day (2-30)</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+                <label>Start date:</label>
+            </div>
+            <div class="col-sm-5">
+                <date-picker date="$ctrl.result.startdate"></date-picker>
+            </div>
+        </div>
+    </div>
+    <!--Weekly-->
+    <div ng-show="$ctrl.result.schtype.value === '3'" class="form-group">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+                <label>Start time:</label>
+            </div>
+            <div class="col-sm-5">
+                <div uib-timepicker ng-model="$ctrl.result.starttime" hour-step="1" minute-step="1" show-meridian="false"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <label>Every</label>
+            </div>
+            <div class="col-sm-2">
+                <input class="form-control" type="number" step="1" min=1 max=4
+                 ng-model="$ctrl.result.everynweek">
+            </div>
+            <div class="col-sm-2">
+                <p>week</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-3">
+                <label>Select weekdays:</label>
+            </div>
+            <div class="col-sm-5">
+                <select class="form-control" multiple
+                    ng-model="$ctrl.result.daysofweek1"
+                    ng-options="option.key as option.value for option in $ctrl.result.DaysOfWeek"></select>
+            </div>
+        </div>
+    </div>
+
+    <!--Monthly-->
+    <div ng-show="$ctrl.result.schtype.value === '4'" class="form-group">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <label>Start time:</label>
+            </div>
+            <div class="col-sm-6">
+                <div uib-timepicker ng-model="$ctrl.result.starttime" hour-step="1" minute-step="1" show-meridian="false"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <label><input type="radio" name="monthlyRadio" ng-model="$ctrl.result.nthflag" value="1">day</label>
+            </div>
+            <div class="col-sm-3">
+                <input class="form-control" type="number" step="1" min=1 max=31
+                    ng-disabled="$ctrl.result.nthflag!=='1'"
+                    ng-model="$ctrl.result.dayofmonth">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <label><input type="radio" name="monthlyRadio"
+                        ng-model="$ctrl.result.nthflag" value="3" >or on the</label>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control"
+                    ng-disabled="$ctrl.result.nthflag!=='3'"
+                    ng-model="$ctrl.result.weekofmonth"
+                    ng-options="option.key as option.value for option in $ctrl.result.WeekOfMonth"></select>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control"
+                    ng-disabled="$ctrl.result.nthflag!=='3'"
+                    ng-model="$ctrl.result.daysofweek3"
+                    ng-options="option.key as option.value for option in $ctrl.result.DaysOfWeek"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-5">
+                <label>of following months:</label>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" multiple
+                    ng-model="$ctrl.result.monthes"
+                    ng-options="option.key as option.value for option in $ctrl.result.Monthes"></select>
+            </div>
+        </div>
+
+    </div>
+
+</form>

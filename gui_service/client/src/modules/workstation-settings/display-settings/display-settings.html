@@ -1,0 +1,137 @@
+<div class="wrapper wrapper-content animated fadeIn" ng-if="$ctrl.isActive">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Displays Settings</h5>
+                </div>
+                <div class="ibox-content">
+            <form class="form-horizontal" name="$ctrl.mform" novalidate>
+
+                <div ng-show="true" class="form-group">
+                    <label for="perset" class="col-sm-3 col-form-label">Display:</label>
+                    <div class="col-sm-9">
+                        <select class="form-control"
+                            ng-model="$ctrl.currentDisplayId"
+                            ng-change="$ctrl.DisplayChanged()"
+                            ng-options="display._id as (display.serial+' ('+display.width+'x'+display.height+')') for display in $ctrl.displays"></select>
+                    </div>
+                </div>
+                <hr/><br/>
+
+
+
+                <div class="form-group">
+                    <label class="col-sm-3 col-form-label">Ignore Display:</label>
+                    <div class="col-sm-8">
+                        <label><input type="checkbox" icheck ng-model="$ctrl.currentDisplay.isactive"> Exclude Display from Testing/Calibration</label>
+                    </div>
+                    <!--<div class="col-sm-1">
+                        <label><input type="checkbox" icheck ng-model="$ctrl.form.bodyRegion.isLocked">is locked</label>
+                    </div>-->
+                </div>
+
+
+                <div ng-show="true" class="form-group">
+                    <m-select title="Calibration Upload:" item="$ctrl.form.CommunicationType"></m-select>
+                </div>
+
+
+                <div ng-show="true" class="form-group">
+                    <m-checkbox title="Used Sensor:" label=" Use Internal Sensor if possible" item="$ctrl.form.InternalSensor"></m-checkbox>
+                </div>
+
+
+                <div ng-show="true" class="form-group">
+                    <m-input title="Display Model:" item="$ctrl.form.Model"></m-input>
+                </div>
+
+
+                <div ng-show="true" class="form-group">
+                    <m-input title="Display Serial Number:" item="$ctrl.form.SerialNumber"></m-input>
+                </div>
+
+
+                <div ng-show="true" class="form-group">
+                    <m-input title="Display Manufacturer:" item="$ctrl.form.Manufacturer"></m-input>
+                </div>
+
+
+                <!--<div class="form-group">
+                    <label class="col-sm-3 col-form-label">Inventory Number:</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" ng-model="">
+                    </div>
+                    <div class="col-sm-1">
+                        <label><input type="checkbox" icheck ng-model="">is locked</label>
+                    </div>
+                </div>-->
+
+
+
+                <div ng-show="true" class="form-group">
+                    <m-select title="Type of Display:" item="$ctrl.form.TypeOfDisplay"></m-select>
+                </div>
+
+
+
+                <div ng-show="true" class="form-group">
+                    <m-select title="Display Technology:" item="$ctrl.form.DisplayTechnology"></m-select>
+                </div>
+
+
+                <div ng-show="true" class="form-group">
+                    <m-select title="Screen Size:" item="$ctrl.form.ScreenSize"></m-select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-3 col-form-label">Resolution (h/v):</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" value="{{$ctrl.form.ResolutionHorizontal.value}}" readonly>
+                    </div>
+                    <div class="col-sm-1">x</div>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" value="{{$ctrl.form.ResolutionVertical.value}}" readonly>
+                    </div>
+                    <div class="col-sm-2">pixels</div>
+                </div>
+
+
+                <div ng-show="true" class="form-group">
+                    <m-select title="Backlight Stabilization:" item="$ctrl.form.BacklightStabilization"></m-select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-3 col-form-label">Installation Date:</label>
+                    <div class="col-sm-9">
+                        <!--<p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup ng-change="$ctrl.displayDateChanged()" ng-model="$ctrl.dt" is-open="$ctrl.popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="$ctrl.dateOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </p>-->
+                        <date-picker date="$ctrl.initDate" on-changed="$ctrl.displayDateChanged(date)"></date-picker>
+                    </div>
+                    <!--<div class="col-sm-1">
+                        <label><input type="checkbox" icheck ng-model="$ctrl.form.Manufacturer.isLocked">is locked</label>
+                    </div>-->
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button ng-disabled="$ctrl.mform.$pristine" type="button" class="btn btn-success" ng-click="$ctrl.save()">Save</button>
+                        <button ng-disabled="$ctrl.mform.$pristine" type="button" class="btn btn-danger" ng-click="$ctrl.cancel()">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,20 @@
+<form class="form-horizontal">
+    <div class="form-group">
+      <label for="display" class="col-sm-3 col-form-label">Display:</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="display" ng-model="$ctrl.result.display" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="task" class="col-sm-3 col-form-label">Task:</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="task" ng-model="$ctrl.result.task" readonly>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="task" class="col-sm-3 col-form-label">Satrt Date:</label>
+      <div class="col-sm-9">
+        <date-picker date="$ctrl.result.date" ng-model="$ctrl.result.ndate"></date-picker>
+      </div>
+    </div>
+</form>

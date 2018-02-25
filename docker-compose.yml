@@ -1,0 +1,63 @@
+version: '3'
+services:
+    synchronizer:
+        container_name: remote_synchronizer
+        build:
+            context: .
+            dockerfile: Dockerfile_synchronize
+        depends_on:
+            - mongodb
+        ports:
+            - "5500:5500"
+    gui:
+        container_name: remote_gui
+        build:
+            context: .
+            dockerfile: Dockerfile_gui
+        depends_on:
+            - mongodb
+            - calendar
+            - mail
+        ports:
+            - "5501:5501"
+    calendar:
+        container_name: remote_calendar
+        build:
+            context: .
+            dockerfile: Dockerfile_calendar
+        depends_on:
+            - mongodb
+
+    mail:
+        container_name: remote_mail
+        build:
+            context: .
+            dockerfile: Dockerfile_mail
+
+    fixtures:
+        container_name: remote_fixtures
+        build:
+            context: .
+            dockerfile: Dockerfile_fixtures
+        depends_on:
+            - mongodb
+            - mail
+        ports:
+            - "5509:5509"
+    mongodb:
+        container_name: remote_mongo
+        image: mongo
+        ports:
+            - "5510:27017"
+        volumes:
+            - "db-config:/data/configdb"
+            - "db-data:/data/db"
+volumes:
+    db-config:
+    db-data:
+
+        #command: --auth
+        #environment:
+            #MONGODB_USER: "appuser"
+            #MONGODB_DATABASE: "storage"
+            #MONGODB_PASS: "1qa5th7uk55gt"

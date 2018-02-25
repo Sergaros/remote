@@ -1,0 +1,24 @@
+FROM node:slim
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# Bundle app source
+COPY ./gui_service /usr/src/app/
+COPY ./libs /usr/src/app/libs
+
+# Install app dependencies
+RUN npm i -g gulp
+RUN npm install
+
+RUN apt-get update && apt-get install -y git-core
+RUN cd client && npm install
+
+EXPOSE 5501
+
+RUN useradd -s /bin/bash -d /usr guiuser
+USER guiuser
+
+CMD ["npm", "start"]
+#CMD ["gulp"]

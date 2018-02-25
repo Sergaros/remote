@@ -1,0 +1,23 @@
+    <page-header data-title="Workstation Settings" path="$ctrl.path" istree="true" on-click="$ctrl.openTreeDialog()"></page-header>
+
+    <app-settings ng-if="$ctrl.isVisible" settings="$ctrl.data.Preferences[0]"
+                    settings-map="$ctrl.data.SettingsNames[0]"></app-settings>
+
+    <cal-settings ng-if="$ctrl.isVisible" settings="$ctrl.data.Preferences[0]"
+                    settings-map="$ctrl.data.SettingsNames[0]"></cal-settings>
+
+    <qa-settings ng-if="$ctrl.isVisible" settings="$ctrl.data.Preferences[0]"
+                    settings-map="$ctrl.data.SettingsNames[0]"></qa-settings>
+
+    <display-settings ng-if="$ctrl.isVisible" wid="$ctrl.wstId" displays="$ctrl.data.Displays[0].displays" settings="$ctrl.data.DisplaysPreferences[0].PreferencesList"
+                    settings-map="$ctrl.data.SettingsNames[0]"></display-settings>
+
+    <scheduler ng-if="$ctrl.isVisible"
+               qa-tasks="$ctrl.data.QATasks[0]"
+               cal-tasks="$ctrl.data.CalTasks"
+               displays="$ctrl.data.DisplaysPreferences[0].PreferencesList"
+               settings-map="$ctrl.data.SettingsNames[0]"
+               wid="$ctrl.wstId"></scheduler>
+
+   <history ng-if="$ctrl.isVisible"
+              wid="$ctrl.wstId"></history>

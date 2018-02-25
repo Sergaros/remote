@@ -1,0 +1,96 @@
+<page-content data-title="Display Calibation" ng-if="$ctrl.isActive">
+    <form class="form-horizontal" name="$ctrl.mform" novalidate>
+
+        <div ng-show="true" class="form-group">
+            <m-select title="Calibration Type:" item="$ctrl.form.CalibrationType"></m-select>
+        </div>
+
+
+        <div ng-show="$ctrl.form.CalibrationType.value==='Gamma'" class="form-group">
+            <label for="slider" class="col-sm-3 col-form-label">Gamma:</label>
+            <div class="col-sm-8">
+                <input type="range" step="0.1" min="1.0" max="2.8" ng-model="$ctrl.form.Gamma.value">
+            </div>
+            <div class="col-sm-1">
+                <p>{{$ctrl.form.Gamma.value}}</p>
+            </div>
+            <!--<div class="col-sm-1">
+                <label><input type="checkbox" icheck ng-model="$ctrl.form.Gamma.isLocked">is locked</label>
+            </div>-->
+        </div>
+
+
+
+        <div ng-show="true" class="form-group">
+            <label for="colorTemp" class="col-sm-3 col-form-label">Color Temperature:</label>
+            <div class="col-sm-1">
+                <input type="checkbox" icheck ng-model="$ctrl.form.AdjustColorTemperature.value">
+            </div>
+            <div class="col-sm-6">
+                <select  ng-disabled="!$ctrl.form.AdjustColorTemperature.value" class="form-control" id="colorTemp"
+                         ng-model="$ctrl.form.ColorTemperatureAdjustment.value"
+                         ng-change="$ctrl.ColorTemperatureChanged('preset')"
+                         ng-options="option.key as option.value for option in $ctrl.form.ColorTemperatureAdjustment.options"></select>
+            </div>
+            <div class="col-sm-2">
+                <input ng-disabled="!$ctrl.form.AdjustColorTemperature.value" type="number" class="form-control" id="colorTempValue"  step="10" min="4000" max="9800" ng-model="$ctrl.form.ColorTemperature.value" ng-change="$ctrl.ColorTemperatureChanged('value')">
+            </div>
+            <!--<div class="col-sm-1">
+                <label><input type="checkbox" icheck ng-model="$ctrl.form.ColorTemperatureAdjustment.isLocked">is locked</label>
+            </div>-->
+        </div>
+
+
+        <div ng-show="true" class="form-group">
+            <label for="maxlum" class="col-sm-3 col-form-label">Max Luminance (cd/m²):</label>
+            <div class="col-sm-7">
+                <select class="form-control" id="maxlumtype" ng-model="$ctrl.whiteLevelType" ng-change="$ctrl.WhiteLevelChanged('type')">
+                    <option value="native">native</option>
+                    <option value="custom">custom</option>
+                </select>
+            </div>
+            <div class="col-sm-2" ng-show="$ctrl.whiteLevelType!=='native'">
+                <input type="number" class="form-control" id="maxlum"  step="10" min="0" max="1000" ng-model="$ctrl.whiteLevelValue" ng-change="$ctrl.WhiteLevelChanged('value')">
+            </div>
+            <!--<div class="col-sm-1">
+                <label><input type="checkbox" icheck ng-change="$ctrl.wlIsLockedChanged()" ng-model="$ctrl.whiteLevelIsLocked">is locked</label>
+            </div>-->
+        </div>
+
+
+
+        <div ng-show="true" class="form-group">
+            <label for="maxlum" class="col-sm-3 col-form-label">Min Luminance (cd/m²):</label>
+            <div class="col-sm-7">
+                <select class="form-control" id="minlumtype" ng-model="$ctrl.blackLevelType" ng-change="$ctrl.BlackLevelChanged('type')">
+                    <option value="native">native</option>
+                    <option value="custom">custom</option>
+                </select>
+            </div>
+            <div class="col-sm-2" ng-show="$ctrl.blackLevelType!=='native'">
+                <input type="number" class="form-control" id="minlum"  step="1" min="0" max="100" ng-model="$ctrl.blackLevelValue" ng-change="$ctrl.BlackLevelChanged('value')">
+            </div>
+            <!--<div class="col-sm-1">
+                <label><input type="checkbox" icheck ng-change="$ctrl.blIsLockedChanged()" ng-model="$ctrl.blackLevelIsLocked">is locked</label>
+            </div>-->
+        </div>
+
+
+        <div ng-show="true" class="form-group">
+            <m-select title="Gamut:" item="$ctrl.form.gamut_name" change="$ctrl.GamutChanged()" changel="$ctrl.GamutIsLockedChanged()"></m-select>
+        </div>
+
+
+        <div ng-show="true" class="form-group">
+            <m-checkbox title="Create Display ICC Profile:" item="$ctrl.form.CreateICCICMProfile"></m-checkbox>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button ng-disabled="$ctrl.mform.$pristine" type="button" class="btn btn-success" ng-click="$ctrl.save()">Save</button>
+                <button ng-disabled="$ctrl.mform.$pristine" type="button" class="btn btn-danger" ng-click="$ctrl.cancel()">Cancel</button>
+            </div>
+        </div>
+    </form>
+</page-content>
